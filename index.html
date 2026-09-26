@@ -4,11 +4,53 @@
   <meta charset="UTF-8">
   <title>نرخ اسعار</title>
   <style>
-    body { font-family: Tahoma, Arial, sans-serif; margin: 20px; background: #f9f9f9; direction: rtl; }
-    h1 { text-align: center; }
-    section { margin-bottom: 40px; }
-    iframe { width: 100%; height: 400px; border: 1px solid #ccc; margin-top: 10px; }
-    .crypto { font-size: 18px; margin: 5px 0; }
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      margin: 0;
+      background: #0d1117; /* مشکی تیره */
+      color: #e6edf3; /* متن روشن */
+      direction: rtl;
+    }
+    header {
+      background: #1f6feb; /* آبی */
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    section {
+      margin: 40px;
+      background: #161b22; /* خاکستری تیره */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(31,111,235,0.5);
+    }
+    h2 {
+      color: #58a6ff; /* آبی روشن */
+      border-bottom: 2px solid #1f6feb;
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: #79c0ff;
+      margin-top: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: 2px solid #1f6feb;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    .crypto {
+      font-size: 18px;
+      margin: 8px 0;
+      padding: 10px;
+      background: #0d1117;
+      border-left: 4px solid #1f6feb;
+    }
   </style>
 </head>
 <body>
@@ -17,8 +59,8 @@
   <!-- بخش ارز دیجیتال -->
   <section>
     <!-- Investing.com Crypto Widget -->
-<iframe src="https://www.widgets.investing.com/crypto-currency-rates?theme=darkTheme"
-width="100%" height="600" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
+<div class="crypto"> <iframe src="https://www.widgets.investing.com/crypto-currency-rates?theme=darkTheme"
+width="100%" height="600" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe> </div>
   </section>
 
   <!-- بخش ارز فیات -->
