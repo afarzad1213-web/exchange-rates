@@ -4,51 +4,49 @@
   <meta charset="UTF-8">
   <title>نرخ اسعار</title>
   <style>
-    body { font-family: Tahoma, Arial, sans-serif; margin: 20px; }
+    body { font-family: Tahoma, Arial, sans-serif; margin: 20px; background: #f9f9f9; direction: rtl; }
     h1 { text-align: center; }
     section { margin-bottom: 40px; }
     table { width: 100%; border-collapse: collapse; margin-top: 10px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
     th { background: #2c3e50; color: #fff; }
-    .update-info { text-align: right; font-size: 14px; color: #555; }
+    .update-info { text-align: left; font-size: 14px; color: #555; }
   </style>
 </head>
 <body>
   <h1>نرخ اسعار</h1>
 
-  <!-- Crypto Section -->
+  <!-- بخش ارز دیجیتال -->
   <section>
-    <h2>ارز دیجیتال (Crypto Currency Live)</h2>
-    <div id="btc">BTC: loading...</div>
-    <div id="eth">ETH: loading...</div>
-    <div id="usdt">USDT: loading...</div>
+    <h2>ارز دیجیتال (زنده)</h2>
+    <div id="btc">بیت‌کوین (BTC): در حال بارگذاری...</div>
+    <div id="eth">اتریوم (ETH): در حال بارگذاری...</div>
+    <div id="usdt">تتر (USDT): در حال بارگذاری...</div>
     <script>
-      async function loadCrypto() {
-        let res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd");
-        let data = await res.json();
-        document.getElementById("btc").innerText = "BTC: $" + data.bitcoin.usd;
-        document.getElementById("eth").innerText = "ETH: $" + data.ethereum.usd;
-        document.getElementById("usdt").innerText = "USDT: $" + data.tether.usd;
+      async function بارگذاری_کریپتو() {
+        let پاسخ = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd");
+        let داده = await پاسخ.json();
+        document.getElementById("btc").innerText = "بیت‌کوین (BTC): $" + داده.bitcoin.usd;
+        document.getElementById("eth").innerText = "اتریوم (ETH): $" + داده.ethereum.usd;
+        document.getElementById("usdt").innerText = "تتر (USDT): $" + داده.tether.usd;
       }
-      loadCrypto();
-      setInterval(loadCrypto, 60000); // refresh every minute
+      بارگذاری_کریپتو();
+      setInterval(بارگذاری_کریپتو, 60000); // هر دقیقه تازه شود
     </script>
   </section>
 
-  <!-- Fiat Section -->
+  <!-- بخش ارز فیات -->
   <section>
-    <h2>ارز فیات (Fiat Currency Live)</h2>
-    <h3>د افغانستان بانک</h3>
-    <iframe src="https://www.dab.gov.af/exchange-rates" width="100%" height="300"></iframe>
+    <h2>ارز فیات</h2>
+    <p>⚠️ نرخ‌های زنده بانک افغانستان، صرافی.af، هرات (ArzCheck) و بین‌المللی به‌طور مستقیم قابل نمایش نیستند. در اینجا جدول نمونه قرار داده شده است که می‌توانی دستی تازه کنی یا اگر API رسمی پیدا شد، وصل کنیم.</p>
 
-    <h3>Sarafi.af</h3>
-    <iframe src="https://sarafi.af" width="100%" height="300"></iframe>
-
-    <h3>هرات (ArzCheck)</h3>
-    <iframe src="https://arzcheck.com" width="100%" height="300"></iframe>
-
-    <h3>International Currency Live</h3>
-    <iframe src="https://www.xe.com/currencyconverter/" width="100%" height="300"></iframe>
+    <table>
+      <tr><th>واحد پول</th><th>خرید</th><th>فروش</th></tr>
+      <tr><td>دالر امریکایی (USD)</td><td>۶۴٫۷۵</td><td>۶۴٫۹۵</td></tr>
+      <tr><td>یورو (EUR)</td><td>۷۳٫۶۰</td><td>۷۴٫۲۰</td></tr>
+      <tr><td>پوند انگلیس (GBP)</td><td>۸۴٫۹۲</td><td>۸۵٫۷۲</td></tr>
+    </table>
+    <div class="update-info">آخرین به‌روزرسانی: ۲۶ سپتامبر ۲۰۲۶</div>
   </section>
 </body>
 </html>
