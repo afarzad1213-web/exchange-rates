@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>نرخ اسعار</title>
+  <style>
+    body { font-family: Tahoma, Arial, sans-serif; margin: 20px; }
+    h1 { text-align: center; }
+    section { margin-bottom: 40px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+    th { background: #2c3e50; color: #fff; }
+    .update-info { text-align: right; font-size: 14px; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>نرخ اسعار</h1>
+
+  <!-- Crypto Section -->
+  <section>
+    <h2>ارز دیجیتال (Crypto Currency Live)</h2>
+    <div id="btc">BTC: loading...</div>
+    <div id="eth">ETH: loading...</div>
+    <div id="usdt">USDT: loading...</div>
+    <script>
+      async function loadCrypto() {
+        let res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd");
+        let data = await res.json();
+        document.getElementById("btc").innerText = "BTC: $" + data.bitcoin.usd;
+        document.getElementById("eth").innerText = "ETH: $" + data.ethereum.usd;
+        document.getElementById("usdt").innerText = "USDT: $" + data.tether.usd;
+      }
+      loadCrypto();
+      setInterval(loadCrypto, 60000); // refresh every minute
+    </script>
+  </section>
+
+  <!-- Fiat Section -->
+  <section>
+    <h2>ارز فیات (Fiat Currency Live)</h2>
+    <h3>د افغانستان بانک</h3>
+    <iframe src="https://www.dab.gov.af/exchange-rates" width="100%" height="300"></iframe>
+
+    <h3>Sarafi.af</h3>
+    <iframe src="https://sarafi.af" width="100%" height="300"></iframe>
+
+    <h3>هرات (ArzCheck)</h3>
+    <iframe src="https://arzcheck.com" width="100%" height="300"></iframe>
+
+    <h3>International Currency Live</h3>
+    <iframe src="https://www.xe.com/currencyconverter/" width="100%" height="300"></iframe>
+  </section>
+</body>
+</html>
